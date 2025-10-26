@@ -122,9 +122,9 @@ body.dark-theme {
 .menuList .option3:hover {
     background-color: rgb(154, 194, 190);
 }
-.menuList .option3:active {
-    /* transform: scale(0.9); */
-}
+/* .menuList .option3:active {
+    transform: scale(0.9);
+} */
 .menuList .search {
     border: none;
     background-color: transparent;

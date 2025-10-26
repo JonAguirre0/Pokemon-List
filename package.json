@@ -1,0 +1,26 @@
+{
+  "name": "pokemon-list",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonAguirre0/Pokemon-List.git"
+  },
+  "author": "Jonathan Aguirre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonAguirre0/Pokemon-List/issues"
+  },
+  "homepage": "https://github.com/JonAguirre0/Pokemon-List#readme",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
