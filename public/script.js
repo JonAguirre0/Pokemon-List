@@ -18,7 +18,7 @@ async function fetchAndDisplay(type, extraParams = {}) {
     } else if(type === 'series'){
         showSeries(data)
     } else if(type === 'search'){
-        console.log(data)
+        showCards(data)
     }
 }
 
@@ -83,3 +83,18 @@ search.addEventListener('submit', (e) => {
         fetchAndDisplay(type, currentParams)
     }
 })
+
+function showCards(cards) {
+    cards.forEach((card) => {
+        const {image} = card
+
+        if (!image) return
+
+        const cardEl = document.createElement('div')
+        cardEl.classList.add('card')
+        cardEl.innerHTML = `
+            <img src="${image}/high.png">
+        `
+        main.appendChild(cardEl)
+    })
+}

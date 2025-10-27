@@ -168,7 +168,6 @@ body.dark-theme {
     position: relative;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     top: 0rem;
     padding: 5rem 0rem;
     /* background-color: black; */
@@ -185,6 +184,7 @@ body.dark-theme {
     height: 20rem;
     box-shadow: var(--boxshadow2);
     transform: perspective(500px);
+    border-radius: 10px;
 }
 .card img:hover {
     transform: scale(1.5);
