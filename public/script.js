@@ -1,20 +1,24 @@
 const main = document.querySelector('.main')
 const series = document.querySelector('.option1')
 const sets = document.querySelector('.option2')
-const search = document.querySelector('.search')
+const search = document.querySelector('.option3')
+const searchInput = document.querySelector('.search')
 
 let isSets = false
 let isSeries = false
 
-async function fetchAndDisplay() {
+async function fetchAndDisplay(type, extraParams = {}) {
     main.innerHTML = ''
-    const res = await fetch(`/${type}`)
+    const params = new URLSearchParams({...extraParams})
+    const res = await fetch(`/${type}?${params}`)
     const data = await res.json() 
 
     if(type === 'sets') {
         showSets(data)
     } else if(type === 'series'){
         showSeries(data)
+    } else if(type === 'search'){
+        console.log(data)
     }
 }
 
@@ -64,4 +68,18 @@ series.addEventListener('click', () => {
     isSeries = true
     type = 'series'
     fetchAndDisplay(type)
+})
+
+search.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    const searchTerm = searchInput.value
+    console.log(searchTerm)
+    type = 'search'
+
+    if(searchTerm && searchTerm !== '') {
+        type = 'search'
+        currentParams = {search: searchTerm}
+        fetchAndDisplay(type, currentParams)
+    }
 })
