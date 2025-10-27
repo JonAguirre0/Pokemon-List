@@ -54,3 +54,6 @@ app.get('/series', async (req, res) => {
     const data = await fetchAndCache(cacheKey, url)
     res.json(data)
 })
+
+app.use(express.static('public'))
+app.listen(port, () => console.log(`Server is running on Port ${port}`))
