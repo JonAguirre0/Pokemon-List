@@ -180,9 +180,11 @@ body.dark-theme {
     position: relative;
     justify-content: center;
     align-items: center;
-    bottom: 18rem;
+    /* bottom: 18rem; */
+    bottom: 9rem;
     margin: 0rem;
-    padding: 0rem;
+    /* padding: 0rem; */
+    padding: 6rem;
 }
 
 .main {
