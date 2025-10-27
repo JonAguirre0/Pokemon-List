@@ -55,5 +55,16 @@ app.get('/series', async (req, res) => {
     res.json(data)
 })
 
+//https://api.tcgdex.net/v2/en/cards?name=pikachu
+
+app.get('/search', async(req, res) => {
+    const searchTerm = req.query.search
+    cacheKey = `searching_pokemon_${searchTerm}`
+    
+    const url = `${API_LINK}/cards?name=${encodeURIComponent(searchTerm)}`
+    const data = await fetchAndCache(cacheKey, url)
+    res.json(data)
+})
+
 app.use(express.static('public'))
 app.listen(port, () => console.log(`Server is running on Port ${port}`))

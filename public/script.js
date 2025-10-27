@@ -13,8 +13,8 @@ async function fetchAndDisplay() {
 
     if(type === 'sets') {
         showSets(data)
-    } else {
-
+    } else if(type === 'series'){
+        showSeries(data)
     }
 }
 
@@ -39,5 +39,29 @@ function showSets(sets) {
 sets.addEventListener('click', () => {
     isSets = true
     type = 'sets'
+    fetchAndDisplay(type)
+})
+
+function showSeries(series) {
+    series.forEach((series) => {
+        const {name, logo} = series
+
+        if(!logo) return
+
+        const seriesEl = document.createElement('div')
+        seriesEl.classList.add('series')
+        seriesEl.innerHTML = `
+            <div class="serie">
+                <img src="${logo}.png">
+                <div class="serieName">${name}</div>
+            </div>
+        `
+        main.appendChild(seriesEl)
+    })
+}
+
+series.addEventListener('click', () => {
+    isSeries = true
+    type = 'series'
     fetchAndDisplay(type)
 })
