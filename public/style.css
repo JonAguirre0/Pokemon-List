@@ -32,18 +32,32 @@ body.dark-theme {
     animation: spin 2s infinite;
 }
 .navContent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
 }
 
 .title {
-  position: absolute;
-  left: 15rem;
-  margin: 0;
-  letter-spacing: 0.1rem;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    left: 15rem;
+    margin: 0;
+    letter-spacing: 0.1rem;
+    color: rgb(198, 94, 56);
+    border-radius: 15px;
+    width: 18rem;
+    cursor: pointer;
+    user-select: none;
+}
+.title:hover {
+    background-color: rgb(154, 194, 190);
+}
+.title:active {
+    transform: scale(0.9);
 }
 
 .menu {

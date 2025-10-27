@@ -3,6 +3,7 @@ const series = document.querySelector('.option1')
 const sets = document.querySelector('.option2')
 const search = document.querySelector('.option3')
 const searchInput = document.querySelector('.search')
+const title = document.querySelector('.title')
 
 let isSets = false
 let isSeries = false
@@ -98,3 +99,8 @@ function showCards(cards) {
         main.appendChild(cardEl)
     })
 }
+
+title.addEventListener('click', () => {
+    searchInput.value = ''
+    window.location.reload()
+})
