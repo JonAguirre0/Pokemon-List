@@ -20,12 +20,14 @@ async function fetchAndDisplay(type, extraParams = {}) {
         showSeries(data)
     } else if(type === 'search'){
         showCards(data)
+    } else if (type === 'selectedSet'){
+        showCards(data)
     }
 }
 
 function showSets(sets) {
     sets.forEach((set) => {
-        const {name, logo} = set
+        const {name, logo, id} = set
 
         if (!logo) return
 
@@ -37,6 +39,12 @@ function showSets(sets) {
                 <div class="setName">${name}</div>
             </div>
         `
+        setEl.addEventListener('click', () => {
+            type = 'selectedSet'
+            currentParams = {set: id}
+            fetchAndDisplay(type, currentParams)
+        })
+
         main.appendChild(setEl)
     })
 }
@@ -86,6 +94,7 @@ search.addEventListener('submit', (e) => {
 })
 
 function showCards(cards) {
+    main.innerHTML = ''
     cards.forEach((card) => {
         const {image} = card
 

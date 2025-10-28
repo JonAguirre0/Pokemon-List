@@ -24,10 +24,11 @@ async function fetchAndCache(key, url) {
 const API_LINK = 'https://api.tcgdex.net/v2/en'
 
 app.get('/selectedSet', async (req, res) => {
-    const choice = req.query.choice
+    const choice = req.query.set
     const cacheKey = `${choice}_set`
 
-    const url = `${API_LINK}/sets/${choice}`
+    // const url = `${API_LINK}/sets/${choice}`
+    const url = `${API_LINK}/cards?set=${choice}`
     const data = await fetchAndCache(cacheKey, url)
     res.json(data)
 })
