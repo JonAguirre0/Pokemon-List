@@ -55,6 +55,7 @@ body.dark-theme {
 }
 .title:hover {
     background-color: rgb(154, 194, 190);
+    /* background-color: rgb(23, 38, 42); */
 }
 .title:active {
     transform: scale(0.9);
@@ -98,6 +99,7 @@ body.dark-theme {
 }
 .menuList .option1:hover {
     background-color: rgb(154, 194, 190);
+    /* background-color: rgb(23, 38, 42); */
 }
 .menuList .option1:active {
     transform: scale(0.9);
@@ -117,6 +119,7 @@ body.dark-theme {
 }
 .menuList .option2:hover {
     background-color: rgb(154, 194, 190);
+    /* background-color: rgb(23, 38, 42); */
 }
 .menuList .option2:active {
     transform: scale(0.9);
@@ -139,6 +142,7 @@ body.dark-theme {
 }
 .menuList .option3:hover {
     background-color: rgb(154, 194, 190);
+    /* background-color: rgb(23, 38, 42); */
 }
 /* .menuList .option3:active {
     transform: scale(0.9);
