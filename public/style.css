@@ -226,8 +226,8 @@ body.dark-theme {
 }
 .card img {
     /* width: 100%; */
-    width: 15rem;
-    height: 20rem;
+    width: 17rem;
+    /* height: 20rem; */
     box-shadow: var(--boxshadow2);
     transform: perspective(500px);
     border-radius: 10px;

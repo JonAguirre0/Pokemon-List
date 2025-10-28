@@ -22,6 +22,8 @@ async function fetchAndDisplay(type, extraParams = {}) {
         showCards(data)
     } else if (type === 'selectedSet'){
         showCards(data)
+    } else if (type === 'selectedSeries'){
+        showSets(data.data)
     }
 }
 
@@ -57,7 +59,7 @@ sets.addEventListener('click', () => {
 
 function showSeries(series) {
     series.forEach((series) => {
-        const {name, logo} = series
+        const {name, logo, id} = series
 
         if(!logo) return
 
@@ -69,6 +71,12 @@ function showSeries(series) {
                 <div class="serieName">${name}</div>
             </div>
         `
+        seriesEl.addEventListener('click', () => {
+            type = 'selectedSeries'
+            currentParams = {series: id}
+            fetchAndDisplay(type, currentParams)
+        })
+
         main.appendChild(seriesEl)
     })
 }

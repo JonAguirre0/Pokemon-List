@@ -41,12 +41,13 @@ app.get('/sets', async (req, res) => {
 })
 
 app.get('/selectedSeries', async (req, res) => {
-    const choice1 = req.query.choice1
+    const choice1 = req.query.series
     const cacheKey = `${choice1}_series`
 
     const url = `${API_LINK}/series/${choice1}`
     const data = await fetchAndCache(cacheKey, url)
-    res.json(data)
+    // res.json(data)
+    res.json({data: data.sets})
 })
 
 app.get('/series', async (req, res) => {
