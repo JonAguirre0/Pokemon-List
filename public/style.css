@@ -261,6 +261,50 @@ body.dark-theme {
     } */
 }
 
+.cardSearch {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    top: 0rem;
+    padding: 5rem 0rem;
+    margin: 0rem 1.5rem;
+    gap: 3rem;
+    cursor: pointer;
+}
+.cardSearch .cardS {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+.cardSearch img {
+    /* width: 100%; */
+    width: 17rem;
+    /* height: 20rem; */
+    box-shadow: var(--boxshadow2);
+    transform: perspective(500px);
+    border-radius: 10px;
+}
+.cardSearch .cardID {
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    text-transform: capitalize;
+}
+.cardSearch img:hover {
+    transform: scale(1.5);
+    transform: perspective(400px)rotateY(-20deg);
+    /* transform: perspective(400px)rotateY(0deg); */
+    box-shadow: 15px 8px 17px rgba(0,0,0,0.9);
+    transition: transform 0.8s ease;
+    animation: move 2s;
+}
+.cardSearch img:active {
+    transform: scale(1.5);
+    z-index: 100;
+}
+
 .sets {
     display: flex;
     position: relative;

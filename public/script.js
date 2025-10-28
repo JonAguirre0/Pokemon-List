@@ -104,14 +104,23 @@ search.addEventListener('submit', (e) => {
 function showCards(cards) {
     main.innerHTML = ''
     cards.forEach((card) => {
-        const {image} = card
+        const {image, id} = card
 
         if (!image) return
 
         const cardEl = document.createElement('div')
-        cardEl.classList.add('card')
+        // cardEl.classList.add('card')
+        // cardEl.innerHTML = `
+        //     <img src="${image}/high.png">
+        //     <div class=cardID>${id}</div>
+        //     <div class=cardID>${id}</div>
+        // `
+        cardEl.classList.add('cardSearch')
         cardEl.innerHTML = `
-            <img src="${image}/high.png">
+            <div class="cardS">
+                <img src="${image}/high.png">
+
+            </div>
         `
         main.appendChild(cardEl)
     })
