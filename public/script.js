@@ -8,6 +8,12 @@ const title = document.querySelector('.title')
 let isSets = false
 let isSeries = false
 
+window.onload = function loading() {
+    setTimeout(function() {
+        document.getElementById('loader').style.display = 'none'
+    }, 999)
+}
+
 async function fetchAndDisplay(type, extraParams = {}) {
     main.innerHTML = ''
     const params = new URLSearchParams({...extraParams})
@@ -42,9 +48,14 @@ function showSets(sets) {
             </div>
         `
         setEl.addEventListener('click', () => {
+            document.getElementById('loader').style.display = 'flex'
             type = 'selectedSet'
             currentParams = {set: id}
-            fetchAndDisplay(type, currentParams)
+            fetchAndDisplay(type, currentParams).then(() => {
+                setTimeout(function() {
+                    document.getElementById('loader').style.display = 'none'
+                }, 3555)
+            })
         })
 
         main.appendChild(setEl)
@@ -88,6 +99,7 @@ series.addEventListener('click', () => {
 })
 
 search.addEventListener('submit', (e) => {
+    document.getElementById('loader').style.display = 'flex'
     e.preventDefault()
 
     const searchTerm = searchInput.value
@@ -97,7 +109,11 @@ search.addEventListener('submit', (e) => {
     if(searchTerm && searchTerm !== '') {
         type = 'search'
         currentParams = {search: searchTerm}
-        fetchAndDisplay(type, currentParams)
+        fetchAndDisplay(type, currentParams).then(() => {
+            setTimeout(function() {
+                document.getElementById('loader').style.display = 'none'
+            }, 2999)
+        })
     }
 })
 
