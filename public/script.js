@@ -112,7 +112,7 @@ search.addEventListener('submit', (e) => {
         fetchAndDisplay(type, currentParams).then(() => {
             setTimeout(function() {
                 document.getElementById('loader').style.display = 'none'
-            }, 2999)
+            }, 3000)
         })
     }
 })
@@ -135,7 +135,10 @@ function showCards(cards) {
         cardEl.innerHTML = `
             <div class="cardS">
                 <img src="${image}/high.png">
-
+            </div>
+            <div class="overview" style="display: none;">
+                <i class="fa-solid fa-circle-plus addCard" id=addCard style="display: none;"></i>
+                <i class="fa-solid fa-circle-minus delCard" id=delCard style="display: none;"></i>
             </div>
         `
         main.appendChild(cardEl)

@@ -277,6 +277,7 @@ body.dark-theme {
     display: flex;
     flex-direction: column;
     gap: 1.3rem;
+    user-select: none;
 }
 .cardSearch img {
     /* width: 100%; */
@@ -303,6 +304,33 @@ body.dark-theme {
 .cardSearch img:active {
     transform: scale(1.5);
     z-index: 100;
+}
+.cardSearch .overview {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    bottom: 2rem;
+    gap: 2rem;
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    width: 9rem;
+    height: 2.5rem;
+    border-radius: 10px;
+}
+.cardSearch .overview #addCard {
+    font-size: 35px;
+    cursor: pointer;
+}
+.cardSearch .overview #addCard:active {
+    transform: scale(0.9);
+}
+.cardSearch .overview #delCard {
+    font-size: 35px;
+    cursor: pointer;
+}
+.cardSearch .overview #delCard:active {
+    transform: scale(0.9);
 }
 
 .sets {
