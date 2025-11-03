@@ -545,7 +545,7 @@ body.dark-theme {
     align-items: center;
     top: 9rem;
     background-color: gray;
-    box-shadow: var(--boxshadow);
+    box-shadow: var(--boxshadow2);
     height: 550px;
     width: 550px;
     z-index: 100;
@@ -670,4 +670,150 @@ body.dark-theme {
     cursor: pointer;
     width: 9rem;
     z-index: 100;
+}
+
+
+
+
+
+
+
+
+
+.createAccountForm {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    top: 9rem;
+    background-color: gray;
+    box-shadow: var(--boxshadow2);
+    height: 550px;
+    width: 550px;
+}
+.createAccountForm h3 {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 35px;
+    top: 0px;
+    letter-spacing: 1px;
+}
+.createAccountForm .usernameTitle{
+    display: flex;
+    position: relative;
+    margin: -1.7rem 1.5rem;
+    color: var(--text-color);
+    font-size: 18px;
+    top: -1rem;
+    left: 5rem;
+}
+.createAccountForm .usernameTitleError{
+    display: flex;
+    position: absolute;
+    font-size: 18px;
+    top: 7.2rem;
+    left: 10rem;
+    color: red;
+}
+.createAccountForm .username {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 0.6rem;
+    margin: 1.5rem 1rem;
+    font-size: 18px;
+    width: 500px;
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+    background-color: var(--bkg-color);
+    color: var(--text-color);
+    top: 0.3rem;
+    left: 5rem;
+}
+.createAccountForm .passwordTitle {
+    display: flex;
+    position: relative;
+    margin: -1.5rem 1.5rem;
+    color: var(--text-color);
+    font-size: 18px;
+    top: 1.6rem;
+    left: 5rem
+}
+.createAccountForm .password {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 0.6rem;
+    margin: 2rem 1rem;
+    font-size: 18px;
+    width: 500px;
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+    background-color: var(--bkg-color);
+    color: var(--text-color);
+    top: 2rem;
+    left: 5rem;
+}
+.createAccountForm .emailTitle {
+    display: flex;
+    position: relative;
+    margin: -1.5rem 1.5rem;
+    color: var(--text-color);
+    font-size: 18px;
+    top: 2rem;
+    left: 5.5rem;
+    font-weight: bold;
+    margin: -0.8rem 1rem;
+}
+.createAccountForm .email {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 0.6rem;
+    margin: 1.5rem 1rem;
+    font-size: 18px;
+    width: 500px;
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+    background-color: var(--bkg-color);
+    color: var(--text-color);
+    left: 5rem;
+    top: 2rem;
+    outline: none;
+}
+.createAccountForm .button {
+    display: flex;
+    position: relative;
+    gap: 2rem;
+    top: 12rem;
+    right: 16rem;
+    justify-content: center;
+    align-items: center;
+}
+.signUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    background-color: #458ee2;
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+    font-family: inherit;
+    letter-spacing: 1px;
+    cursor: pointer;
+    z-index: 100;
+}
+.signUp:active{
+    transform: scale(0.9);
+}
+.signUp:hover{
+    opacity: 0.9;
 }
