@@ -163,6 +163,34 @@ body.dark-theme {
     width: 20rem;
     background-color: rgb(154, 194, 190);
 }
+.menuList .account {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    left: 9rem;
+    padding: 0 1rem;
+    border: none;
+    background-color: transparent;
+    border-radius: 15px;
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 21px;
+    font-weight: bold;
+    color: rgb(198, 94, 56);
+    gap: 1rem;
+    cursor: pointer;
+    user-select: none;
+}
+.menuList .account:hover {
+    background-color: rgb(154, 194, 190);
+}
+.menuList .account:active {
+    transform: scale(0.9);
+}
+.menuList #userIcon {
+    font-size: 27px;
+}
 
 .homePage {
     display: flex;
