@@ -530,3 +530,144 @@ body.dark-theme {
         background-color: #2B7FFF;
     }
 }
+
+
+
+
+
+
+
+
+.signInForm {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    top: 9rem;
+    background-color: gray;
+    box-shadow: var(--boxshadow);
+    height: 550px;
+    width: 550px;
+    z-index: 100;
+}
+.signInForm h3 {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 35px;
+    top: 0px;
+    letter-spacing: 1px;
+}
+.usernameTitle {
+    display: flex;
+    position: relative;
+    margin: -1rem 1.5rem;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    top: -2rem;
+    left: 17rem;
+}
+.usernameTitleError {
+    display: flex;
+    position: absolute;
+    font-size: 18px;
+    top: 10rem;
+    left: 10rem;
+    color: red;
+}
+.username {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 0.6rem;
+    margin: 1.5rem 1rem;
+    font-size: 18px;
+    width: 500px;
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+    background-color: var(--bkg-color);
+    color: var(--text-color);
+    top: -2rem;
+    left: 17rem;
+    outline: none;
+}
+.passwordTitle {
+    display: flex;
+    position: relative;
+    margin: -1.5rem 1.5rem;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    top: -0.5rem;
+    left: 17rem;
+}
+.password {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 0.6rem;
+    margin: 1.5rem 1rem;
+    font-size: 18px;
+    width: 500px;
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+    background-color: var(--bkg-color);
+    color: var(--text-color);
+    left: 17rem;
+    outline: none;
+}
+.signInForm .buttons {
+    display: flex;
+    position: relative;
+    gap: 2rem;
+    top: 9rem;
+    right: 4rem;
+    justify-content: center;
+    align-items: center;
+}
+.submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    background-color: #458ee2;
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+    font-family: inherit;
+    font-size: 18px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.submit:active{
+    transform: scale(0.9);
+}
+.submit:hover{
+    opacity: 0.9;
+}
+.accountLink {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    top: 15rem;
+    right: 21rem;
+    gap: 0rem;
+}
+.textBeforeLink {
+    color: var(--text-color);
+    width: 16rem;
+}
+.createAccountLink {
+    cursor: pointer;
+    width: 9rem;
+    z-index: 100;
+}
