@@ -1,6 +1,8 @@
 # Getting Started
 Run the app on your local server(localhost:5500).
 
+**API used from the following link.** https://tcgdex.dev/
+
 # Files
 
 * index.html : This file contains the HTML code for the app.
