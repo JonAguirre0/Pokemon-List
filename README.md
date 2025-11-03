@@ -1,5 +1,5 @@
 # Getting Started
-Run the app on your local server(localhost:5501).
+Run the app on your local server(localhost:5500).
 
 # Files
 
