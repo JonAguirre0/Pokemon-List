@@ -678,7 +678,7 @@ body.dark-theme {
     /* top: 9rem; */
     top: -3rem;
     margin: 21.4rem;
-    background-color: gray;
+    background-color: #94bdbd;
     box-shadow: var(--boxshadow2);
     height: 550px;
     width: 550px;
@@ -687,7 +687,6 @@ body.dark-theme {
     position: absolute;
     align-items: center;
     justify-content: center;
-    /* color: var(--text-color); */
     font-size: 35px;
     top: 0px;
     letter-spacing: 1px;
@@ -717,10 +716,8 @@ body.dark-theme {
     margin: 1.5rem 1rem;
     font-size: 18px;
     width: 500px;
-    /* border: 2px solid var(--text-color); */
+    border: 2px solid #73a4a4;
     border-radius: 10px;
-    /* background-color: var(--bkg-color); */
-    /* color: var(--text-color); */
     top: 0.3rem;
     left: 5rem;
 }
@@ -728,7 +725,6 @@ body.dark-theme {
     display: flex;
     position: relative;
     margin: -1.5rem 1.5rem;
-    /* color: var(--text-color); */
     font-size: 18px;
     top: 1.6rem;
     left: 5rem
@@ -741,10 +737,8 @@ body.dark-theme {
     margin: 2rem 1rem;
     font-size: 18px;
     width: 500px;
-    /* border: 2px solid var(--text-color); */
+    border: 2px solid #73a4a4;
     border-radius: 10px;
-    /* background-color: var(--bkg-color); */
-    /* color: var(--text-color); */
     top: 2rem;
     left: 5rem;
 }
@@ -752,7 +746,6 @@ body.dark-theme {
     display: flex;
     position: relative;
     margin: -1.5rem 1.5rem;
-    /* color: var(--text-color); */
     font-size: 18px;
     top: 2rem;
     left: 5.5rem;
@@ -767,14 +760,11 @@ body.dark-theme {
     margin: 1.5rem 1rem;
     font-size: 18px;
     width: 500px;
-    /* border: 2px solid var(--text-color); */
+    border: 2px solid #73a4a4;
     border-radius: 10px;
-    /* background-color: var(--bkg-color); */
-    /* color: var(--text-color); */
     left: 5rem;
     top: 2rem;
     outline: none;
-    border: none;
 }
 .createAccountForm .button {
     position: relative;
@@ -786,14 +776,14 @@ body.dark-theme {
 .signUp{
     justify-content: center;
     align-items: center;
-    /* color: var(--text-color); */
+    color: var(--text-color);
     background-color: #458ee2;
-    /* border: 2px solid var(--text-color); */
+    border: 2px solid #73a4a4;
     border-radius: 10px;
-    border: none;
     height: 50px;
     width: 150px;
     font-family: inherit;
+    font-weight: bold;
     font-size: 18px;
     letter-spacing: 1px;
     cursor: pointer;
