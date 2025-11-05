@@ -543,33 +543,31 @@ body.dark-theme {
     position: relative;
     justify-content: center;
     align-items: center;
-    top: 9rem;
+    top: 0rem;
+    /* top: 9rem; */
     background-color: gray;
     box-shadow: var(--boxshadow2);
     height: 550px;
     width: 550px;
     z-index: 100;
+    margin: 21.4rem;
 }
 .signInForm h3 {
-    display: flex;
     position: absolute;
     align-items: center;
     justify-content: center;
-    color: var(--text-color);
     font-size: 35px;
     top: 0px;
     letter-spacing: 1px;
 }
 .usernameTitle {
-    display: flex;
     position: relative;
-    margin: -1rem 1.5rem;
     color: var(--text-color);
     font-size: 18px;
     font-weight: bold;
     letter-spacing: 1px;
     top: -2rem;
-    left: 17rem;
+    left: 18.5rem;
 }
 .usernameTitleError {
     display: flex;
@@ -580,35 +578,30 @@ body.dark-theme {
     color: red;
 }
 .username {
-    display: flex;
     position: relative;
     align-items: center;
     justify-content: center;
     padding: 0.9rem 0.6rem;
-    margin: 1.5rem 1rem;
+    margin: 1rem 1rem;
     font-size: 18px;
     width: 500px;
     border: 2px solid var(--text-color);
     border-radius: 10px;
     background-color: var(--bkg-color);
-    color: var(--text-color);
     top: -2rem;
     left: 17rem;
     outline: none;
 }
 .passwordTitle {
-    display: flex;
     position: relative;
-    margin: -1.5rem 1.5rem;
     color: var(--text-color);
     font-size: 18px;
     font-weight: bold;
     letter-spacing: 1px;
-    top: -0.5rem;
-    left: 17rem;
+    top: 0.5rem;
+    left: 18.5rem;
 }
 .password {
-    display: flex;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -624,16 +617,13 @@ body.dark-theme {
     outline: none;
 }
 .signInForm .buttons {
-    display: flex;
     position: relative;
-    gap: 2rem;
-    top: 9rem;
+    top: 10rem;
     right: 4rem;
     justify-content: center;
     align-items: center;
 }
 .submit{
-    display: flex;
     justify-content: center;
     align-items: center;
     color: var(--text-color);
