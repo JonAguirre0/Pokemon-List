@@ -4,6 +4,7 @@ const sets = document.querySelector('.option2')
 const search = document.querySelector('.option3')
 const searchInput = document.querySelector('.search')
 const title = document.querySelector('.title')
+const account = document.querySelector('.account')
 
 let isSets = false
 let isSeries = false
@@ -149,3 +150,59 @@ title.addEventListener('click', () => {
     searchInput.value = ''
     window.location.reload()
 })
+
+function showSignIn() {
+    main.innerHTML = ''
+    const signInEl = document.createElement('div')
+    signInEl.classList.add('signInForm')
+    signInEl.innerHTML = `
+        <h3>Sign In</h3>
+        <div class="inputs">
+            <a class="usernameTitle">Username</a>
+            <a class="usernameTitleError"></a>
+            <input class="username" id="username" type="text" placeholder="Username">
+            <a class="passwordTitle">Password</a>
+            <input class="password" id="password" type="password" placeholder="Password">
+        </div>
+        <div class="buttons">
+            <button class="submit" id="submit">Submit</button>
+        </div>
+        <div class="accountLink">
+            <a class="textBeforeLink">Don't have an Account?</a>
+            <a href="#" class="createAccountLink" id="createAccount">Create Account</a>
+        </div>
+    `
+    main.appendChild(signInEl)
+
+    const createAccountLink = document.querySelector('.createAccountLink')
+    createAccountLink.addEventListener('click', () => {
+        showCreateAccount()
+    })
+}
+
+
+account.addEventListener('click', () => {
+    showSignIn()
+})
+
+function showCreateAccount() {
+    main.innerHTML = ''
+    const accountEl = document.createElement('div')
+    accountEl.classList.add('createAccountForm')
+    accountEl.innerHTML = `
+        <h3>Registration</h3>
+        <div class="inputs">
+            <a class="usernameTitle">Username</a>
+            <a class="usernameTitleError"></a>
+            <input class="username" id="username" type="text" placeholder="Username">
+            <a class="passwordTitle">Password</a>
+            <input class="password" id="password" type="password" placeholder="Password">
+            <a class="emailTitle">Email</a>
+            <input class="email" id="email" type="text" placeholder="Email">
+        </div>
+        <div class="button">
+            <button class="signUp" id="signUp">Sign Up</button>
+        </div>
+    `
+    main.appendChild(accountEl)
+}
