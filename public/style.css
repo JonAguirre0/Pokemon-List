@@ -342,6 +342,7 @@ body.dark-theme {
     position: absolute;
     justify-content: center;
     align-items: center;
+    /* bottom: -0.1rem; */
     bottom: 2rem;
     gap: 2rem;
     background-color: rgba(255,255,255,0.2);
@@ -792,4 +793,18 @@ body.dark-theme {
 }
 .signUp:hover{
     opacity: 0.9;
+}
+
+.cardBorder {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    height: 30rem;
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 40px;
+    padding: 1rem;
+    margin: 1rem;
 }

@@ -140,7 +140,7 @@ function showCards(cards) {
             <div class="overview" style="display: none;">
                 <i class="fa-solid fa-circle-plus addCard" id=addCard style="display: none;"></i>
                 <i class="fa-solid fa-circle-minus delCard" id=delCard style="display: none;"></i>
-            </div>
+            </div> 
         `
         main.appendChild(cardEl)
     })
