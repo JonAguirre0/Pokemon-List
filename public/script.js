@@ -5,6 +5,8 @@ const search = document.querySelector('.option3')
 const searchInput = document.querySelector('.search')
 const title = document.querySelector('.title')
 const account = document.querySelector('.account')
+const offScreenSideMenu = document.querySelector('.off-screen-side-menu')
+const signIn = document.querySelector('.signIn')
 
 let isSets = false
 let isSeries = false
@@ -182,7 +184,12 @@ function showSignIn() {
 
 
 account.addEventListener('click', () => {
+    offScreenSideMenu.classList.toggle('active')
+})
+
+signIn.addEventListener('click', () => {
     showSignIn()
+    offScreenSideMenu.classList.toggle('active')
 })
 
 function showCreateAccount() {
