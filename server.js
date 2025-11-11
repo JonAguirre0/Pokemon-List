@@ -1,12 +1,19 @@
 require('dotenv').config()
 const NodeCache = require('node-cache')
 const express = require('express')
+const connectDB = require('./public/db')
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
+const Users = require('./public/user')
 
 const cardCache = new NodeCache({stdTTL: 3600})
 const app = express()
 app.use(express.json())
 const port = process.env.port
 const api_key = process.env.API_KEY
+const jwtSecret = process.env.JWT
+
+connectDB()
 
 async function fetchAndCache(key, url) {
     const cached = cardCache.get(key)

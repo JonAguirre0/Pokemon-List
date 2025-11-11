@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
-DBURL = process.env.DBURL
+const DBURL = process.env.DBURL
 const connectDB = async () => {
     try {
         await mongoose.connect(DBURL)
         console.log('Connected to Database')
     } catch (error) {
-        console.log('Error, Database Not Connected')
+        console.log('Error, Database Not Connected', error.message)
     }
 }
 
