@@ -32,4 +32,4 @@ UserSchema.pre('save', async function (next) {
     next()
 })
 
-module.exports = mongoose.model('Users', UserSchema)
+module.exports = mongoose.model('Favorite', UserSchema)

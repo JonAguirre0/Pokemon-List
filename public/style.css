@@ -568,8 +568,9 @@ body.dark-theme {
 .usernameTitleError {
     display: flex;
     position: absolute;
-    font-size: 18px;
-    top: 10rem;
+    font-size: 19px;
+    letter-spacing: 0.2rem;
+    top: 6.35rem;
     left: 10rem;
     color: red;
 }
@@ -706,8 +707,9 @@ body.dark-theme {
 .createAccountForm .usernameTitleError{
     display: flex;
     position: absolute;
-    font-size: 18px;
-    top: 7.2rem;
+    font-size: 19px;
+    letter-spacing: 0.2rem;
+    top: 6.35rem;
     left: 10rem;
     color: red;
 }

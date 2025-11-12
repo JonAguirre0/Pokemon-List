@@ -209,6 +209,30 @@ closeSignInForm.addEventListener('click', () => {
     main.classList.toggle('blur')
 })
 
+signIn.addEventListener('click', () => {
+    showSignIn()
+    signInForm.style.display = 'flex'
+    offScreenSideMenu.classList.toggle('active')
+    main.classList.toggle('blur')
+})
+
+signInSubmit.addEventListener('click', () => {
+    const username = document.querySelector('.username').value
+    const password = document.querySelector('.password').value
+})
+
+async function logInPost(username, password) {
+    try {
+        const res = await fetch('/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username, password})
+        })
+    } catch(error) {
+        
+    }
+}
+
 
 account.addEventListener('click', () => {
     offScreenSideMenu.classList.toggle('active')
@@ -219,13 +243,6 @@ account.addEventListener('click', () => {
     //     offScreenSideMenu.classList.remove('exit')
     //     offScreenSideMenu.classList.add('active')
     // }
-})
-
-signIn.addEventListener('click', () => {
-    showSignIn()
-    signInForm.style.display = 'flex'
-    offScreenSideMenu.classList.toggle('active')
-    main.classList.toggle('blur')
 })
 
 logOut.addEventListener('click', () => {
@@ -265,10 +282,6 @@ const closeCreateAccountForm = document.querySelector('.closeCreateAccountForm')
 closeCreateAccountForm.addEventListener('click', () => {
     createAccountForm.style.display = 'none'
     main.classList.toggle('blur')
-})
-
-signInSubmit.addEventListener('click', () => {
-    
 })
 
 favorites.addEventListener('click', () => {
