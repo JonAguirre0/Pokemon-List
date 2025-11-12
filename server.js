@@ -4,7 +4,7 @@ const express = require('express')
 const connectDB = require('./public/db')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-const Users = require('./public/user')
+const Favorite = require('./public/user')
 
 const cardCache = new NodeCache({stdTTL: 3600})
 const app = express()
@@ -73,6 +73,47 @@ app.get('/search', async(req, res) => {
     const url = `${API_LINK}/cards?name=${encodeURIComponent(searchTerm)}`
     const data = await fetchAndCache(cacheKey, url)
     res.json(data)
+})
+
+app.post('/login', async(req, res) => {
+    try {
+        const {username, password} = req.body
+        const user = await Favorite.findOne({username})
+        if(!user) {
+            return res.status(401).json({error: 'Invalid Username'})
+        }
+        const isMatch = await bcrypt.compare(password, user.password)
+        if(isMatch) {
+            const token = jwt.sign({userID: user._id, username: user.username}. jwtSecret, {expiresIn: '1h'})
+            res.json({message: 'Login Successful', token})
+        } else {
+            return res.status(401).json({error:'Invalid Password'})
+        }
+    } catch(error) {
+        return res.status(500).json({error:'Login Error'})
+    }
+})
+
+app.post('/logout', async(req,res) => {
+    res.status(200).json({message: 'Logged Out Successfully'})
+    console.log('Logged Out Successfully')
+})
+
+app.post('/register', async (req, res) => {
+    try {
+        const {username, email, password} = req.body
+        if(!username || !email || !password) {
+            return res.status(400).json({error: 'All Fields are Required'})
+        }
+        const userExists = await Favorite.findOne({username})
+        if(userExists) {
+            return res.status(400).json({error: 'Username Already Exists'})
+        }
+        const newUser = await Favorite.create({username, email, password})
+        res.json({userID: newUser._id})
+    } catch(error) {
+        res.status(500).json({message: 'Registeration Error'})
+    }
 })
 
 app.use(express.static('public'))

@@ -12,6 +12,7 @@ const createAccountForm = document.querySelector('.createAccountForm')
 const logOut = document.querySelector('.logOut')
 const signInSubmit = document.querySelector('.submit')
 const favorites = document.querySelector('.favorites')
+const usernameTitleError = document.querySelector('.usernameTitleError')
 
 let isSets = false
 let isSeries = false
@@ -158,6 +159,17 @@ title.addEventListener('click', () => {
     window.location.reload()
 })
 
+account.addEventListener('click', () => {
+    offScreenSideMenu.classList.toggle('active')
+    // if(offScreenSideMenu.classList.contains('active')){
+    //     offScreenSideMenu.classList.remove('active')
+    //     offScreenSideMenu.classList.add('exit')
+    // } else {
+    //     offScreenSideMenu.classList.remove('exit')
+    //     offScreenSideMenu.classList.add('active')
+    // }
+})
+
 function showSignIn() {
     // main.innerHTML = ''
     const signInEl = document.createElement('div')
@@ -228,25 +240,41 @@ async function logInPost(username, password) {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({username, password})
         })
+        const data = await res.json()
+        if(!res.ok){
+            usernameTitleError.textContent = data.error
+        } else {
+            usernameTitleError.textContent = ''
+            alert('Login Successfull')
+            signIn.style.display = 'none'
+            logOut.style.display = 'block'
+            logOut.innerHTML = `Log Out, ${username}`
+            favorites.style.display = 'block'
+            favorites.innerHTML = `${username}'s Favorites`
+            account.innerHTML = `${username}`
+
+        }
     } catch(error) {
-        
+        usernameTitleError.textContent = 'Error, LogIn Unsuccessful'
     }
 }
 
-
-account.addEventListener('click', () => {
-    offScreenSideMenu.classList.toggle('active')
-    // if(offScreenSideMenu.classList.contains('active')){
-    //     offScreenSideMenu.classList.remove('active')
-    //     offScreenSideMenu.classList.add('exit')
-    // } else {
-    //     offScreenSideMenu.classList.remove('exit')
-    //     offScreenSideMenu.classList.add('active')
-    // }
-})
-
-logOut.addEventListener('click', () => {
-
+logOut.addEventListener('click', async() => {
+    const res = await fetch('/logout', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username, email, password})
+    })
+    if(!res.ok) {
+        alert('Error Logging Out')
+    } else {
+        localStorage.removeItem('token')
+        logOut.style.display = 'none'
+        favorites.style.display = 'none'
+        offScreenSideMenu.classList.toggle('active')
+        account.innerHTML = 'Account'
+        alert('Log Out Successful')
+    }
 })
 
 function showCreateAccount() {
@@ -283,6 +311,25 @@ closeCreateAccountForm.addEventListener('click', () => {
     createAccountForm.style.display = 'none'
     main.classList.toggle('blur')
 })
+
+async function signUpPost(username, email, password) {
+    try {
+        const res = await fetch('/register', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username, email, password})
+        })
+        const data = await res.json()
+        if(!res.ok) {
+            usernameTitleError.textContent = data.error
+        } else {
+            usernameTitleError.textContent = ''
+            alert('Registration Successful')
+        }
+    } catch(error) {
+        usernameTitleError.textContent = 'Error, Registration Unsuccessful'
+    }
+}
 
 favorites.addEventListener('click', () => {
     main.innerHTML = ''
