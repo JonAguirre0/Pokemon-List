@@ -13,6 +13,9 @@ const logOut = document.querySelector('.logOut')
 const signInSubmit = document.querySelector('.submit')
 const favorites = document.querySelector('.favorites')
 const usernameTitleError = document.querySelector('.usernameTitleError')
+const createAccountLink = document.querySelector('.createAccountLink')
+const closeSignInForm = document.querySelector('.closeSignInForm')
+const closeCreateAccountForm = document.querySelector('.closeCreateAccountForm')
 
 let isSets = false
 let isSeries = false
@@ -170,59 +173,17 @@ account.addEventListener('click', () => {
     // }
 })
 
-function showSignIn() {
-    // main.innerHTML = ''
-    const signInEl = document.createElement('div')
-    signInEl.classList.add('signInForm')
-    signInEl.innerHTML = `
-        <h3>Sign In</h3>
-        <a class="closeSignInForm"><i class="fa-solid fa-xmark"></i></a>
-        <div class="inputs">
-            <a class="usernameTitle">Username</a>
-            <a class="usernameTitleError"></a>
-            <input class="username" id="username" type="text" placeholder="Username">
-            <a class="passwordTitle">Password</a>
-            <input class="password" id="password" type="password" placeholder="Password">
-        </div>
-        <div class="buttons">
-            <button class="submit" id="submit">Submit</button>
-        </div>
-        <div class="accountLink">
-            <a class="textBeforeLink">Don't have an Account?</a>
-            <a href="#" class="createAccountLink" id="createAccount">Create Account</a>
-        </div>
-    `
-    //main.appendChild(signInEl)
-
-    // const createAccountLink = document.querySelector('.createAccountLink')
-    // createAccountLink.addEventListener('click', () => {
-    //     showCreateAccount()
-    //     signInForm.style.display = 'none'
-    //     createAccountForm.style.display = 'flex'
-    // })
-
-    // const closeSignInForm = document.querySelector('.closeSignInForm')
-    // closeSignInForm.addEventListener('click', () => {
-    //     signInForm.style.display = 'none'
-    //     main.classList.toggle('blur')
-    // })
-}
-
-const createAccountLink = document.querySelector('.createAccountLink')
 createAccountLink.addEventListener('click', () => {
-    showCreateAccount()
     signInForm.style.display = 'none'
     createAccountForm.style.display = 'flex'
 })
 
-const closeSignInForm = document.querySelector('.closeSignInForm')
 closeSignInForm.addEventListener('click', () => {
     signInForm.style.display = 'none'
     main.classList.toggle('blur')
 })
 
 signIn.addEventListener('click', () => {
-    showSignIn()
     signInForm.style.display = 'flex'
     offScreenSideMenu.classList.toggle('active')
     main.classList.toggle('blur')
@@ -277,36 +238,6 @@ logOut.addEventListener('click', async() => {
     }
 })
 
-function showCreateAccount() {
-    //main.innerHTML = ''
-    const accountEl = document.createElement('div')
-    accountEl.classList.add('createAccountForm')
-    accountEl.innerHTML = `
-        <h3>Registration</h3>
-        <a class="closeCreateAccountForm"><i class="fa-solid fa-xmark"></i></a>
-        <div class="inputs">
-            <a class="usernameTitle">Username</a>
-            <a class="usernameTitleError"></a>
-            <input class="username" id="username" type="text" placeholder="Username">
-            <a class="passwordTitle">Password</a>
-            <input class="password" id="password" type="password" placeholder="Password">
-            <a class="emailTitle">Email</a>
-            <input class="email" id="email" type="text" placeholder="Email">
-        </div>
-        <div class="button">
-            <button class="signUp" id="signUp">Sign Up</button>
-        </div>
-    `
-    //main.appendChild(accountEl)
-
-    // const closeCreateAccountForm = document.querySelector('.closeCreateAccountForm')
-    // closeCreateAccountForm.addEventListener('click', () => {
-    //     createAccountForm.style.display = 'none'
-    //     main.classList.toggle('blur')
-    // })
-}
-
-const closeCreateAccountForm = document.querySelector('.closeCreateAccountForm')
 closeCreateAccountForm.addEventListener('click', () => {
     createAccountForm.style.display = 'none'
     main.classList.toggle('blur')
