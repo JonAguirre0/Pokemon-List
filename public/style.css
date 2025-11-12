@@ -565,12 +565,12 @@ body.dark-theme {
     top: -2rem;
     left: 18.5rem;
 }
-.usernameTitleError {
+.signInUsernameTitleError {
     display: flex;
     position: absolute;
     font-size: 19px;
     letter-spacing: 0.2rem;
-    top: 6.35rem;
+    top: 7.8rem;
     left: 10rem;
     color: red;
 }
@@ -704,14 +704,22 @@ body.dark-theme {
     top: -1rem;
     left: 5rem;
 }
-.createAccountForm .usernameTitleError{
+.createAccountForm .createAccountUsernameTitleError{
     display: flex;
     position: absolute;
-    font-size: 19px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
     letter-spacing: 0.2rem;
-    top: 6.35rem;
+    top: 5.8rem;
     left: 10rem;
-    color: red;
+    width: 23rem;
+    color: black;
+    padding: 0 3rem;
+    background-color: red;
+    border-radius: 10px;
+    user-select: none;
 }
 .createAccountForm .username {
     position: relative;

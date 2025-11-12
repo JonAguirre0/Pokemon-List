@@ -11,8 +11,9 @@ const signInForm = document.querySelector('.signInForm')
 const createAccountForm = document.querySelector('.createAccountForm')
 const logOut = document.querySelector('.logOut')
 const signInSubmit = document.querySelector('.submit')
+const signUpSubmit = document.querySelector('.signUp')
 const favorites = document.querySelector('.favorites')
-const usernameTitleError = document.querySelector('.usernameTitleError')
+//const usernameTitleError = document.querySelector('.usernameTitleError')
 const createAccountLink = document.querySelector('.createAccountLink')
 const closeSignInForm = document.querySelector('.closeSignInForm')
 const closeCreateAccountForm = document.querySelector('.closeCreateAccountForm')
@@ -192,9 +193,11 @@ signIn.addEventListener('click', () => {
 signInSubmit.addEventListener('click', () => {
     const username = document.querySelector('.username').value
     const password = document.querySelector('.password').value
+    logInPost(username, password)
 })
 
 async function logInPost(username, password) {
+    const signInUsernameTitleError = document.querySelector('.signInUsernameTitleError')
     try {
         const res = await fetch('/login', {
             method: 'POST',
@@ -203,9 +206,9 @@ async function logInPost(username, password) {
         })
         const data = await res.json()
         if(!res.ok){
-            usernameTitleError.textContent = data.error
+            signInUsernameTitleError.textContent = data.error
         } else {
-            usernameTitleError.textContent = ''
+            signInUsernameTitleError.textContent = ''
             alert('Login Successfull')
             signIn.style.display = 'none'
             logOut.style.display = 'block'
@@ -213,10 +216,11 @@ async function logInPost(username, password) {
             favorites.style.display = 'block'
             favorites.innerHTML = `${username}'s Favorites`
             account.innerHTML = `${username}`
-
+            signInForm.style.display = 'none'
+            main.classList.toggle('blur')
         }
     } catch(error) {
-        usernameTitleError.textContent = 'Error, LogIn Unsuccessful'
+        signInUsernameTitleError.textContent = 'Error, LogIn Unsuccessful'
     }
 }
 
@@ -244,6 +248,7 @@ closeCreateAccountForm.addEventListener('click', () => {
 })
 
 async function signUpPost(username, email, password) {
+    const createAccountUsernameTitleError = document.querySelector('.createAccountUsernameTitleError')
     try {
         const res = await fetch('/register', {
             method: 'POST',
@@ -252,15 +257,24 @@ async function signUpPost(username, email, password) {
         })
         const data = await res.json()
         if(!res.ok) {
-            usernameTitleError.textContent = data.error
+            createAccountUsernameTitleError.textContent = data.error
         } else {
-            usernameTitleError.textContent = ''
+            createAccountUsernameTitleError.textContent = ''
             alert('Registration Successful')
+            createAccountForm.style.display = 'none'
+            main.classList.toggle('blur')
         }
     } catch(error) {
-        usernameTitleError.textContent = 'Error, Registration Unsuccessful'
+        createAccountUsernameTitleError.textContent = 'Error, Registration Unsuccessful'
     }
 }
+
+signUpSubmit.addEventListener('click', () => {
+    const username = document.querySelector('.username').value
+    const email = document.querySelector('.email').value
+    const password = document.querySelector('.password').value
+    signUpPost(username, email, password)
+})
 
 favorites.addEventListener('click', () => {
     main.innerHTML = ''
