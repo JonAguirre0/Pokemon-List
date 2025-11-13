@@ -20,6 +20,7 @@ const closeCreateAccountForm = document.querySelector('.closeCreateAccountForm')
 
 let isSets = false
 let isSeries = false
+let selectedCard = null
 localStorage.removeItem('token')
 
 window.onload = function loading() {
@@ -141,7 +142,7 @@ search.addEventListener('submit', (e) => {
 function showCards(cards) {
     main.innerHTML = ''
     cards.forEach((card) => {
-        const {image, id} = card
+        const {image, id, name} = card
 
         if (!image) return
 
@@ -158,8 +159,8 @@ function showCards(cards) {
                 <img src="${image}/high.png">
             </div>
             <div class="overview" style="display: none;">
-                <i class="fa-solid fa-circle-plus addCard" id=addCard ></i>
-                <i class="fa-solid fa-circle-minus delCard" id=delCard ></i>
+                <i class="fa-solid fa-circle-plus addCard" id=addCard data-id="${id}" data-image="${image}" data-name="${name}"></i>
+                <i class="fa-solid fa-circle-minus delCard" id=delCard data-id="${id}" data-image="${image}" data-name="${name}"></i>
             </div> 
         `
         main.appendChild(cardEl)
@@ -272,6 +273,12 @@ logOut.addEventListener('click', async() => {
         document.querySelectorAll('.overview').forEach(addCardBtn => {
             addCardBtn.style.display = 'none'
         })
+        main.innerHTML = `
+            <div class="homePage">
+                <img class="img1" src="https://assets.tcgdex.net/en/base/base1/logo.png">
+                <img class="img2" src="./images/img1.png">
+            </div>
+        `
     }
 })
 
@@ -317,7 +324,43 @@ signUpSubmit.addEventListener('click', () => {
     document.querySelector('.email').value = ''
 })
 
-favorites.addEventListener('click', () => {
+favorites.addEventListener('click', async() => {
     main.innerHTML = ''
     offScreenSideMenu.classList.toggle('active')
+    const token = localStorage.getItem('token')
+
+    const res = await fetch('/favoritesList', {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`},
+    })
+    const data = await res.json()
+    showCards(data.favorites)
 })
+
+document.addEventListener('click', async function (e) {
+    const addCardBtn = e.target.closest('.addCard')
+
+    if(addCardBtn) {
+        selectedCard = {
+            id: addCardBtn.dataset.id,
+            image: addCardBtn.dataset.image,
+            name: addCardBtn.dataset.name,
+        }
+    
+        console.log(selectedCard)
+
+        const token = localStorage.getItem('token')
+        const res = await fetch('/favorites', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(selectedCard)
+        })
+        console.log('Card Added to Favorites')
+        return res.json()
+    }
+})
+
+//NEED TO ADD FUNCTION TO DEL CARDS FROM THE USERS ACCOUNT

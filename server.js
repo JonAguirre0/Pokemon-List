@@ -116,5 +116,39 @@ app.post('/register', async (req, res) => {
     }
 })
 
+app.post('/favorites',async(req, res) => {
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+    const {id, image, name} = req.body
+    if(!token){
+        return res.status(401).json({error: 'No Token Provided'})
+    }
+    try {
+        const checkToken = jwt.verify(token, jwtSecret)
+        const user = await Favorite.findById(checkToken.userID)
+
+        user.favorites.push({id, image, name})
+        await user.save()
+        res.json({message: 'Card Saved Successfully to Favorites'})
+    } catch (error) {
+        res.status(401).json({error: 'Error, Could Not Verify JWT'})
+    }
+})
+
+app.get('/favoritesList', async(req, res) => {
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+    if(!token){
+        return res.status(401).json({error: 'No Token Provided'})
+    }
+    try {
+        const checkToken = jwt.verify(token, jwtSecret)
+        const user = await Favorite.findById(checkToken.userID)
+        res.json({favorites: user.favorites})
+    }catch (error) {
+        res.status(401).json({error: 'Error, Could Not Verify JWT'})
+    }
+})
+
 app.use(express.static('public'))
 app.listen(port, () => console.log(`Server is running on Port ${port}`))
