@@ -369,6 +369,12 @@ document.addEventListener('click', async function (e) {
             },
             body: JSON.stringify(selectedCard)
         })
+        const favoriteMessage = document.querySelector('.favoriteMessage')
+        favoriteMessage.style.display = 'flex'
+        setTimeout(() => {
+            favoriteMessage.style.display = 'none'
+        }, 2000)
+
         console.log('Card Added to Favorites')
         return res.json()
     }
