@@ -150,5 +150,24 @@ app.get('/favoritesList', async(req, res) => {
     }
 })
 
+app.post('/deletedCard', async(req,res) => {
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+    const {id, name, image} = req.body
+    if(!token){
+        return res.status(401).json({error: 'No Token Provided'})
+    }
+    try {
+        const checkToken = jwt.verify(token, jwtSecret)
+        const user = await Favorite.findById(checkToken.userID)
+
+        user.favorites.pull({id, name, image})
+        await user.save()
+        res.json({ message: 'Card Deleted Successfully From Favorites'})
+    } catch (error) {
+        res.status(401).json({error: 'Error, Could Not Verify JWT'})
+    }
+})
+
 app.use(express.static('public'))
 app.listen(port, () => console.log(`Server is running on Port ${port}`))

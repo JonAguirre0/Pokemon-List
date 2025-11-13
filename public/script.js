@@ -13,13 +13,10 @@ const logOut = document.querySelector('.logOut')
 const signInSubmit = document.querySelector('.submit')
 const signUpSubmit = document.querySelector('.signUp')
 const favorites = document.querySelector('.favorites')
-//const usernameTitleError = document.querySelector('.usernameTitleError')
 const createAccountLink = document.querySelector('.createAccountLink')
 const closeSignInForm = document.querySelector('.closeSignInForm')
 const closeCreateAccountForm = document.querySelector('.closeCreateAccountForm')
 
-let isSets = false
-let isSeries = false
 let selectedCard = null
 localStorage.removeItem('token')
 
@@ -53,6 +50,7 @@ async function fetchAndDisplay(type, extraParams = {}) {
             addCardBtn.style.display = 'flex'
         })
     }
+    return data
 }
 
 function showSets(sets) {
@@ -131,11 +129,27 @@ search.addEventListener('submit', (e) => {
     if(searchTerm && searchTerm !== '') {
         type = 'search'
         currentParams = {search: searchTerm}
-        fetchAndDisplay(type, currentParams).then(() => {
-            setTimeout(function() {
+        fetchAndDisplay(type, currentParams).then((data) => {
+            if(!data || data.length === 0){
                 document.getElementById('loader').style.display = 'none'
-            }, 3000)
+                const errorMessage = document.querySelector('.errorMessage')
+                errorMessage.style.display = 'flex'
+                setTimeout(() => {
+                    errorMessage.style.display = 'none'
+                }, 2000)
+            } else {
+                setTimeout(function() {
+                    document.getElementById('loader').style.display = 'none'
+                }, 3000)
+            }
         })
+    } else  {
+        document.getElementById('loader').style.display = 'none'
+        const errorMessage = document.querySelector('.errorMessage')
+        errorMessage.style.display = 'flex'
+        setTimeout(() => {
+            errorMessage.style.display = 'none'
+        }, 2000)
     }
 })
 
@@ -186,13 +200,6 @@ title.addEventListener('click', () => {
 
 account.addEventListener('click', () => {
     offScreenSideMenu.classList.toggle('active')
-    // if(offScreenSideMenu.classList.contains('active')){
-    //     offScreenSideMenu.classList.remove('active')
-    //     offScreenSideMenu.classList.add('exit')
-    // } else {
-    //     offScreenSideMenu.classList.remove('exit')
-    //     offScreenSideMenu.classList.add('active')
-    // }
 })
 
 createAccountLink.addEventListener('click', () => {
@@ -380,4 +387,31 @@ document.addEventListener('click', async function (e) {
     }
 })
 
-//NEED TO ADD FUNCTION TO DEL CARDS FROM THE USERS ACCOUNT
+document.addEventListener('click', async function (e) {
+    const delCardBtn = e.target.closest('.delCard')
+
+    if(delCardBtn) {
+        selectedCard = {
+            id: delCardBtn.dataset.id,
+            name: delCardBtn.dataset.name,
+            image: delCardBtn.dataset.image,
+        }
+
+        const token = localStorage.getItem('token')
+        const res = await fetch('/deletedCard', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(selectedCard)
+        })
+        const delMessage = document.querySelector('.delMessage')
+        delMessage.style.display = 'flex'
+        setTimeout(() => {
+            delMessage.style.display = 'none'
+        }, 2000)
+        console.log('Card Deleted From Favorites')
+        return res.json()
+    }
+})
