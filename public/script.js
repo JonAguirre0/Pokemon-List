@@ -160,7 +160,7 @@ function showCards(cards) {
             </div>
             <div class="overview" style="display: none;">
                 <i class="fa-solid fa-circle-plus addCard" id=addCard data-id="${id}" data-image="${image}" data-name="${name}"></i>
-                <i class="fa-solid fa-circle-minus delCard" id=delCard data-id="${id}" data-image="${image}" data-name="${name}"></i>
+                <i class="fa-solid fa-circle-minus delCard" id=delCard data-id="${id}" data-image="${image}" data-name="${name}" style="display: none;"></i>
             </div> 
         `
         main.appendChild(cardEl)
@@ -245,7 +245,7 @@ async function logInPost(username, password) {
             signInForm.style.display = 'none'
             main.classList.toggle('blur')
             document.querySelectorAll('.overview').forEach(addCardBtn => {
-                addCardBtn.style.display = 'block'
+                addCardBtn.style.display = 'flex'
             })
         }
     } catch(error) {
@@ -335,6 +335,17 @@ favorites.addEventListener('click', async() => {
     })
     const data = await res.json()
     showCards(data.favorites)
+    document.querySelectorAll('.overview').forEach(overview => {
+        overview.style.display = 'flex'
+        const addCard = overview.querySelectorAll('.addCard')
+        addCard.forEach(card => {
+            card.style.display = 'none'
+        })
+        const delCard = overview.querySelectorAll('.delCard')
+        delCard.forEach(card => {
+            card.style.display = 'flex'
+        })
+    })
 })
 
 document.addEventListener('click', async function (e) {

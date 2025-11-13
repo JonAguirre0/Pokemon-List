@@ -347,6 +347,9 @@ body.dark-theme {
     font-size: 35px;
     cursor: pointer;
 }
+.cardSearch .overview #addCard:hover {
+    color: #2E69FF;
+}
 .cardSearch .overview #addCard:active {
     transform: scale(0.9);
 }
@@ -356,6 +359,9 @@ body.dark-theme {
 }
 .cardSearch .overview #delCard:active {
     transform: scale(0.9);
+}
+.cardSearch .overview #delCard:hover {
+    color: #FF512E;
 }
 
 .sets {
