@@ -721,7 +721,7 @@ body.dark-theme {
     border-radius: 10px;
     user-select: none;
 }
-.createAccountForm .username {
+.createAccountForm .caUsername {
     position: relative;
     align-items: center;
     justify-content: center;
@@ -742,7 +742,7 @@ body.dark-theme {
     top: 1.6rem;
     left: 5rem
 }
-.createAccountForm .password {
+.createAccountForm .caPassword {
     position: relative;
     align-items: center;
     justify-content: center;
@@ -874,7 +874,8 @@ body.dark-theme {
     top: -3rem;
 }
 .off-screen-side-menu .signIn {
-    width: 10rem;
+    /* width: 10rem; */
+    width: 13rem;
     height: 2.5rem;
     font-family: inherit;
     font-weight: bold;
@@ -893,7 +894,8 @@ body.dark-theme {
     transform: scale(0.9);
 }
 .off-screen-side-menu .favorites {
-    width: 10rem;
+    /* width: 10rem; */
+    width: 13rem;
     height: 2.5rem;
     font-family: inherit;
     font-weight: bold;
@@ -912,7 +914,8 @@ body.dark-theme {
     transform: scale(0.9);
 }
 .off-screen-side-menu .logOut {
-    width: 10rem;
+    /* width: 10rem; */
+    width: 13rem;
     height: 2.5rem;
     font-family: inherit;
     font-weight: bold;

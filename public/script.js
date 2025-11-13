@@ -20,6 +20,7 @@ const closeCreateAccountForm = document.querySelector('.closeCreateAccountForm')
 
 let isSets = false
 let isSeries = false
+localStorage.removeItem('token')
 
 window.onload = function loading() {
     setTimeout(function() {
@@ -29,6 +30,7 @@ window.onload = function loading() {
 
 async function fetchAndDisplay(type, extraParams = {}) {
     main.innerHTML = ''
+    token = localStorage.getItem('token')
     const params = new URLSearchParams({...extraParams})
     const res = await fetch(`/${type}?${params}`)
     const data = await res.json() 
@@ -43,6 +45,12 @@ async function fetchAndDisplay(type, extraParams = {}) {
         showCards(data)
     } else if (type === 'selectedSeries'){
         showSets(data.data)
+    }
+
+    if(token !== null) {
+        document.querySelectorAll('.overview').forEach(addCardBtn => {
+            addCardBtn.style.display = 'flex'
+        })
     }
 }
 
@@ -150,8 +158,8 @@ function showCards(cards) {
                 <img src="${image}/high.png">
             </div>
             <div class="overview" style="display: none;">
-                <i class="fa-solid fa-circle-plus addCard" id=addCard style="display: none;"></i>
-                <i class="fa-solid fa-circle-minus delCard" id=delCard style="display: none;"></i>
+                <i class="fa-solid fa-circle-plus addCard" id=addCard ></i>
+                <i class="fa-solid fa-circle-minus delCard" id=delCard ></i>
             </div> 
         `
         main.appendChild(cardEl)
@@ -160,7 +168,19 @@ function showCards(cards) {
 
 title.addEventListener('click', () => {
     searchInput.value = ''
-    window.location.reload()
+    //window.location.reload()
+    token = localStorage.getItem('token')
+    main.innerHTML = `
+        <div class="homePage">
+            <img class="img1" src="https://assets.tcgdex.net/en/base/base1/logo.png">
+            <img class="img2" src="./images/img1.png">
+        </div>
+    `
+    if(token !== null){
+        document.querySelectorAll('.overview').forEach(addCardBtn => {
+            addCardBtn.style.display = 'flex'
+        })
+    }
 })
 
 account.addEventListener('click', () => {
@@ -182,6 +202,8 @@ createAccountLink.addEventListener('click', () => {
 closeSignInForm.addEventListener('click', () => {
     signInForm.style.display = 'none'
     main.classList.toggle('blur')
+    document.querySelector('.username').value = ''
+    document.querySelector('.password').value = ''
 })
 
 signIn.addEventListener('click', () => {
@@ -194,6 +216,8 @@ signInSubmit.addEventListener('click', () => {
     const username = document.querySelector('.username').value
     const password = document.querySelector('.password').value
     logInPost(username, password)
+    document.querySelector('.username').value = ''
+    document.querySelector('.password').value = ''
 })
 
 async function logInPost(username, password) {
@@ -210,14 +234,18 @@ async function logInPost(username, password) {
         } else {
             signInUsernameTitleError.textContent = ''
             alert('Login Successfull')
+            localStorage.setItem('token', data.token)
             signIn.style.display = 'none'
             logOut.style.display = 'block'
             logOut.innerHTML = `Log Out, ${username}`
             favorites.style.display = 'block'
             favorites.innerHTML = `${username}'s Favorites`
-            account.innerHTML = `${username}`
+            account.innerHTML = `<i class="fa-solid fa-circle-user" id="userIcon"></i>${username}`
             signInForm.style.display = 'none'
             main.classList.toggle('blur')
+            document.querySelectorAll('.overview').forEach(addCardBtn => {
+                addCardBtn.style.display = 'block'
+            })
         }
     } catch(error) {
         signInUsernameTitleError.textContent = 'Error, LogIn Unsuccessful'
@@ -236,15 +264,23 @@ logOut.addEventListener('click', async() => {
         localStorage.removeItem('token')
         logOut.style.display = 'none'
         favorites.style.display = 'none'
+        signIn.style.display = 'block'
         offScreenSideMenu.classList.toggle('active')
-        account.innerHTML = 'Account'
+        account.innerHTML = '<i class="fa-solid fa-circle-user" id="userIcon"></i> Account'
+        searchInput.value = ''
         alert('Log Out Successful')
+        document.querySelectorAll('.overview').forEach(addCardBtn => {
+            addCardBtn.style.display = 'none'
+        })
     }
 })
 
 closeCreateAccountForm.addEventListener('click', () => {
     createAccountForm.style.display = 'none'
     main.classList.toggle('blur')
+    document.querySelector('.caUsername').value = ''
+    document.querySelector('.caPassword').value = ''
+    document.querySelector('.email').value = ''
 })
 
 async function signUpPost(username, email, password) {
@@ -263,6 +299,7 @@ async function signUpPost(username, email, password) {
             alert('Registration Successful')
             createAccountForm.style.display = 'none'
             main.classList.toggle('blur')
+            account.innerHTML = `<i class="fa-solid fa-circle-user" id="userIcon"></i>${username}`
         }
     } catch(error) {
         createAccountUsernameTitleError.textContent = 'Error, Registration Unsuccessful'
@@ -270,12 +307,17 @@ async function signUpPost(username, email, password) {
 }
 
 signUpSubmit.addEventListener('click', () => {
-    const username = document.querySelector('.username').value
+    const username = document.querySelector('.caUsername').value
     const email = document.querySelector('.email').value
-    const password = document.querySelector('.password').value
+    const password = document.querySelector('.caPassword').value
+    console.log(username, email, password)
     signUpPost(username, email, password)
+    document.querySelector('.caUsername').value = ''
+    document.querySelector('.caPassword').value = ''
+    document.querySelector('.email').value = ''
 })
 
 favorites.addEventListener('click', () => {
     main.innerHTML = ''
+    offScreenSideMenu.classList.toggle('active')
 })
