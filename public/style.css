@@ -1149,4 +1149,39 @@ body.dark-theme {
         display: flex;
         gap: -3rem;
     }
+
+    .favoriteMessage {
+        left: 34rem;
+        top: 20rem;
+    }
+    .delMessage {
+        left: 34rem;
+        top: 20rem;
+    }
+    .errorMessage {
+        left: 34rem;
+        top: 20rem;
+    }
+    .signInUsernameTitleError {
+        justify-content: center;
+        align-items: center;
+        font-size: 19px;
+        letter-spacing: 0.2rem;
+        top: 5.5rem;
+        left: 10rem;
+        width: 23rem;
+        height: 2rem;
+        color: black;
+        background-color: red;
+        border-radius: 10px;
+        user-select: none;
+        z-index: 100;
+    }
+    .createAccountForm .createAccountUsernameTitleError {
+        top: 3.9rem;
+        font-size: 15px;
+        width: 24rem;
+        height: 2rem;
+        padding: 0;
+    }
 }
