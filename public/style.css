@@ -568,11 +568,18 @@ body.dark-theme {
 .signInUsernameTitleError {
     display: flex;
     position: absolute;
+    justify-content: center;
+    align-items: center;
     font-size: 19px;
     letter-spacing: 0.2rem;
-    top: 7.8rem;
+    top: 7.5rem;
     left: 10rem;
-    color: red;
+    width: 23rem;
+    height: 2rem;
+    color: black;
+    background-color: red;
+    border-radius: 10px;
+    user-select: none;
 }
 .username {
     position: relative;
@@ -709,14 +716,15 @@ body.dark-theme {
     position: absolute;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     letter-spacing: 0.2rem;
-    top: 5.8rem;
+    top: 6rem;
     left: 10rem;
     width: 23rem;
+    height: 2rem;
     color: black;
-    padding: 0 3rem;
+    
     background-color: red;
     border-radius: 10px;
     user-select: none;
@@ -1172,7 +1180,7 @@ body.dark-theme {
         width: 23rem;
         height: 2rem;
         color: black;
-        background-color: red;
+        
         border-radius: 10px;
         user-select: none;
         z-index: 100;

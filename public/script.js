@@ -244,6 +244,7 @@ async function logInPost(username, password) {
             })
         }
     } catch(error) {
+        signInUsernameTitleError.style.display = 'flex'
         signInUsernameTitleError.textContent = 'Error, LogIn Unsuccessful'
     }
 }
@@ -304,11 +305,21 @@ async function signUpPost(username, email, password) {
         } else {
             createAccountUsernameTitleError.textContent = ''
             alert('Registration Successful')
+            localStorage.setItem('token', data.token)
             createAccountForm.style.display = 'none'
             main.classList.toggle('blur')
+            signIn.style.display = 'none'
+            logOut.style.display = 'block'
+            favorites.style.display = 'block'
+            favorites.innerHTML = `${username}'s Favorites`
+            logOut.innerHTML = `Log Out, ${username}`
             account.innerHTML = `<i class="fa-solid fa-circle-user" id="userIcon"></i>${username}`
+            document.querySelectorAll('.overview').forEach(addCardBtn => {
+                addCardBtn.style.display = 'flex'
+            })
         }
     } catch(error) {
+        createAccountUsernameTitleError.style.display = 'flex'
         createAccountUsernameTitleError.textContent = 'Error, Registration Unsuccessful'
     }
 }
