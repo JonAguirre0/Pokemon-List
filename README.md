@@ -31,6 +31,8 @@ The "Favorites" list will then display all previously added cards with the optio
 
 Users can then log out of their account by clicking on the "Log Out, [Username]" button after clicking on the "Account" button.
 
+Clicking on the sites Title will take the user back to the homepage.
+
 # Files
 
 * index.html : This file contains the HTML code for the app.
