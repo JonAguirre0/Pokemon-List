@@ -1047,6 +1047,9 @@ body.dark-theme {
 }
 
 @media (max-width: 1400px) and (min-height:650px) {
+    .loaderTitle {
+        left: 42%;
+    }
     .homePage .img1 {
         position: relative;
         width: 40rem;
