@@ -3,6 +3,8 @@ Run the app on your local server(localhost:5500).
 
 **API used from the following link.** https://tcgdex.dev/
 
+* Description
+
 When clicking the "Series" button, a list of all Pokémon Card series will be displayed.
 
 ![]()
