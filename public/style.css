@@ -55,13 +55,11 @@ body.dark-theme {
 }
 .title:hover {
     background-color: rgb(154, 194, 190);
-    /* background-color: rgb(23, 38, 42); */
 }
 .title:active {
     transform: scale(0.9);
 }
 .title img {
-    /* width: 90px; */
     width: 50px;
     margin: 0 1rem;
 }
@@ -104,7 +102,6 @@ body.dark-theme {
 }
 .menuList .option1:hover {
     background-color: rgb(154, 194, 190);
-    /* background-color: rgb(23, 38, 42); */
 }
 .menuList .option1:active {
     transform: scale(0.9);
@@ -124,7 +121,6 @@ body.dark-theme {
 }
 .menuList .option2:hover {
     background-color: rgb(154, 194, 190);
-    /* background-color: rgb(23, 38, 42); */
 }
 .menuList .option2:active {
     transform: scale(0.9);
@@ -146,7 +142,6 @@ body.dark-theme {
 }
 .menuList .option3:hover {
     background-color: rgb(154, 194, 190);
-    /* background-color: rgb(23, 38, 42); */
 }
 .menuList .search {
     border: none;
@@ -286,9 +281,6 @@ body.dark-theme {
         transform: perspective(400px)rotateY(20deg);
         box-shadow: -15px 8px 17px rgba(0,0,0,0.9);
     }
-    /* 100% {
-        transform: perspective(400px)rotateY(0deg);
-    } */
 }
 
 .cardSearch {
@@ -845,7 +837,6 @@ body.dark-theme {
     position: fixed;
     justify-content: center;
     align-items: center;
-    /* right: -15rem; */
     right: -20rem;
     top: 5rem;
     height: 40rem;
@@ -854,13 +845,10 @@ body.dark-theme {
     border-bottom-left-radius: 30px;
     background-color: #a4b4b4;
     box-shadow: var(--boxshadow2);
-    /* opacity:0; */
-    /* animation: slideOff 1s ease; */
     transition: transform 0.6s ease;
 }
 .off-screen-side-menu.active {
     opacity: 1;
-    /* animation: slide 1s ease; */
     transform: translateX(-20rem);
 }
 @keyframes slide {
@@ -882,7 +870,6 @@ body.dark-theme {
     top: -3rem;
 }
 .off-screen-side-menu .signIn {
-    /* width: 10rem; */
     width: 13rem;
     height: 2.5rem;
     font-family: inherit;
@@ -902,7 +889,6 @@ body.dark-theme {
     transform: scale(0.9);
 }
 .off-screen-side-menu .favorites {
-    /* width: 10rem; */
     width: 13rem;
     height: 2.5rem;
     font-family: inherit;
@@ -922,7 +908,6 @@ body.dark-theme {
     transform: scale(0.9);
 }
 .off-screen-side-menu .logOut {
-    /* width: 10rem; */
     width: 13rem;
     height: 2.5rem;
     font-family: inherit;
