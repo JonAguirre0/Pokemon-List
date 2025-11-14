@@ -1045,3 +1045,105 @@ body.dark-theme {
         right: 20rem;
     }
 }
+
+@media (max-width: 1400px) and (min-height:650px) {
+    .homePage .img1 {
+        position: relative;
+        width: 40rem;
+        padding: 5rem;
+        right: 0rem;
+    }
+    .homePage .img2 {
+        width: 40rem;
+    }
+    .homePage {
+        height: 87vh;
+    }
+
+    .title {
+        left: 1rem;
+        font-size: 20px;
+        width: 18rem;
+    }
+    .title img {
+        width: 3rem;
+    }
+
+    .off-screen-side-menu {
+        height: 30rem;
+    }
+
+    .signInForm {
+        top: -14rem;
+        right: 5rem;
+        height: 30rem;
+    }
+    .signInForm .submit {
+        position: relative;
+        top: -1rem;
+    }
+    .accountLink {
+        position: relative;
+        top: 13.5rem;
+    }
+    .createAccountForm {
+        top: -14rem;
+        right: 5rem;
+        height: 30rem;
+    }
+    .createAccountForm h3 {
+        font-size: 30px;
+        top: -0.5rem;
+    }
+
+    .sets {
+        width: 20rem;
+        height: 13rem;
+    }
+    .set {
+        width: 19rem;
+        height: 12rem;
+    }
+    .set img {
+        width: 80%;
+    }
+    .setName {
+        font-size: 17px;
+    }
+
+    .series {
+        width: 20rem;
+        height: 13rem;
+    }
+    .serie {
+        width: 19rem;
+        height: 12rem;
+    }
+    .serie img {
+        width: 80%;
+    }
+    .serieName {
+        font-size: 20px;
+    }
+
+    .cardSearch {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        padding: 4.5rem 0rem;
+        margin: 0rem 1.5rem;
+        gap: 0rem;
+    }
+    .cardSearch img {
+        width: 13rem;
+    }
+    .cardSearch .overview {
+        bottom: 0.8rem;
+    }
+    .cardSearch .cardS {
+        display: flex;
+        gap: -3rem;
+    }
+}
