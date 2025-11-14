@@ -29,6 +29,7 @@ The "Favorites" list becomes accessible after signing in by clicking the "Accoun
 
 The "Favorites" list will then display all previously added cards with the option of deleting any card the users desires.
 
+Users can then log out of their account by clicking on the "Log Out, [Username]" button after clicking on the "Account" button.
 
 # Files
 
@@ -39,3 +40,17 @@ The "Favorites" list will then display all previously added cards with the optio
 * db.js : This file contains the code for the MongoDB database connection.
 * user.js : This file contains the code for the Schema named User for the database.
 * images Folder : This folder contains the images which are used in the README, icon and homepage.
+
+![](./public/images/img6.png)
+
+![](./public/images/img7.png)
+
+![](./public/images/img8.png)
+
+![](./public/images/img9.png)
+
+![](./public/images/img10.png)
+
+![](./public/images/img11.png)
+
+API used from: https://tcgdex.dev/
