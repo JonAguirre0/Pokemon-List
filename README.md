@@ -7,8 +7,6 @@ Run the app on your local server(localhost:5500).
 
 When clicking the "Series" button, a list of all Pokémon Card series will be displayed.
 
-![]()
-
 Clicking on one of these series will then display all the Pokémon Card sets that belong to that series.
 
 Clicking on a set will then display the Pokémon Cards of the chosen set.
