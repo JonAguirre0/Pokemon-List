@@ -976,3 +976,72 @@ body.dark-theme {
     color: black;
     z-index: 100;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 1920px) {
+    .homePage .img1 {
+        position: relative;
+        width: 50rem;
+        padding: 5rem;
+        right: -4rem;
+    }
+    .homePage .img2 {
+        width: 60rem;
+    }
+    .homePage {
+        height: 91vh;
+    }
+
+    .title {
+        left: 7rem;
+    }
+
+    .sets {
+        width: 30rem;
+        height: 15rem;
+    }
+    .set {
+        width: 29rem;
+        height: 14rem;
+    }
+    .set img {
+        width: 90%;
+    }
+    .setName {
+        font-size: 25px;
+    }
+
+    .series {
+        width: 30rem;
+        height: 15rem;
+    }
+    .serie {
+        width: 29rem;
+        height: 14rem;
+    }
+    .serie img {
+        width: 90%;
+    }
+    .serieName {
+        font-size: 25px;
+    }
+
+    .signInForm {
+        top: -7rem;
+        right: 20rem;
+    }
+    .createAccountForm {
+        top: -7rem;
+        right: 20rem;
+    }
+}
