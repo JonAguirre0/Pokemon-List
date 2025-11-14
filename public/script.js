@@ -161,12 +161,6 @@ function showCards(cards) {
         if (!image) return
 
         const cardEl = document.createElement('div')
-        // cardEl.classList.add('card')
-        // cardEl.innerHTML = `
-        //     <img src="${image}/high.png">
-        //     <div class=cardID>${id}</div>
-        //     <div class=cardID>${id}</div>
-        // `
         cardEl.classList.add('cardSearch')
         cardEl.innerHTML = `
             <div class="cardS">
@@ -183,7 +177,6 @@ function showCards(cards) {
 
 title.addEventListener('click', () => {
     searchInput.value = ''
-    //window.location.reload()
     token = localStorage.getItem('token')
     main.innerHTML = `
         <div class="homePage">
@@ -202,18 +195,6 @@ account.addEventListener('click', () => {
     offScreenSideMenu.classList.toggle('active')
 })
 
-createAccountLink.addEventListener('click', () => {
-    signInForm.style.display = 'none'
-    createAccountForm.style.display = 'flex'
-})
-
-closeSignInForm.addEventListener('click', () => {
-    signInForm.style.display = 'none'
-    main.classList.toggle('blur')
-    document.querySelector('.username').value = ''
-    document.querySelector('.password').value = ''
-})
-
 signIn.addEventListener('click', () => {
     signInForm.style.display = 'flex'
     offScreenSideMenu.classList.toggle('active')
@@ -224,6 +205,13 @@ signInSubmit.addEventListener('click', () => {
     const username = document.querySelector('.username').value
     const password = document.querySelector('.password').value
     logInPost(username, password)
+    document.querySelector('.username').value = ''
+    document.querySelector('.password').value = ''
+})
+
+closeSignInForm.addEventListener('click', () => {
+    signInForm.style.display = 'none'
+    main.classList.toggle('blur')
     document.querySelector('.username').value = ''
     document.querySelector('.password').value = ''
 })
@@ -287,6 +275,11 @@ logOut.addEventListener('click', async() => {
             </div>
         `
     }
+})
+
+createAccountLink.addEventListener('click', () => {
+    signInForm.style.display = 'none'
+    createAccountForm.style.display = 'flex'
 })
 
 closeCreateAccountForm.addEventListener('click', () => {
